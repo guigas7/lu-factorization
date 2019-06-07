@@ -38,6 +38,7 @@ else
 fi
 DRANGE=$(( 10 ** DECIMAL ));
 # For each row assigned by $1
+echo "$1" > $file;
 for (( i = 0; i < ${1}; i++ )); do
     # For each collumn assigned by $2
     for (( j = 0; j < ${2}; j++ )); do
