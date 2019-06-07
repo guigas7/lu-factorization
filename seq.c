@@ -1,31 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define N 3
-
 void printA(double **, int);
 void getA(double **, int);
 
 int main () {
-    double **a = malloc(N * sizeof(double *));
-    for (int i = 0; i < N; i++) {
-        a[i] = malloc(N * sizeof(double));
+    int n;
+    scanf("%d", &n);
+    double **a = malloc(n * sizeof(double *));
+    for (int i = 0; i < n; i++) {
+        a[i] = malloc(n * sizeof(double));
     }
-    getA(a, N);
-    printA(a, N);
-    for (int k = 0; k < N; k++) {
+    getA(a, n);
+    for (int k = 0; k < n; k++) {
         /* DivisioN step */
-        for (int i = k + 1; i < N; i++) {
+        for (int i = k + 1; i < n; i++) {
             a[i][k] = a[i][k] / a[k][k];
         }
         /* ElimiNatioN step */
-        for (int i = k + 1; i < N; i++) {
-            for (int j = k + 1; j < N; j++) {
+        for (int i = k + 1; i < n; i++) {
+            for (int j = k + 1; j < n; j++) {
                 a[i][j] = a[i][j] - (a[i][k] * a[k][j]);
             }
         }
     }
-    printA(a, N);
+    printA(a, n);
     return 0;
 }
 
