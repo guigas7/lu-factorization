@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <omp.h>
 
 void printA(double **, int, FILE *);
 void getA(double **, int);
@@ -15,11 +16,11 @@ int main (int argc, char *argv[]) {
     }
     getA(a, n);
     for (int k = 0; k < n; k++) {
-        /* DivisioN step */
+        #pragma omp parallel for
         for (int i = k + 1; i < n; i++) {
             a[i][k] = a[i][k] / a[k][k];
         }
-        /* ElimiNatioN step */
+        #pragma omp parallel for
         for (int i = k + 1; i < n; i++) {
             for (int j = k + 1; j < n; j++) {
                 a[i][j] = a[i][j] - (a[i][k] * a[k][j]);

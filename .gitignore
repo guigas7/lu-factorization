@@ -53,3 +53,5 @@ dkms.conf
 
 # Executables
 first
+second
+results.txt
