@@ -1,0 +1,10 @@
+gcc seq.c -o Sequencial -msse3 -O3;                           
+gcc seqSemSymd.c -o SeqSemSymd -msse3 -O3;           
+gcc paraleloC2.c -o Par-2 -fopenmp -msse3 -O3;                
+gcc paraleloC4.c -o Par-4 -fopenmp -msse3 -O3;                
+gcc paraleloC8.c -o Par-8 -fopenmp -msse3 -O3;                
+gcc paraleloC16.c -o Par-16 -fopenmp -msse3 -O3;              
+gcc par2-auto.c -o Par-2-auto -fopenmp -msse3 -O3;            
+gcc par4-auto.c -o Par-4-auto -fopenmp -msse3 -O3;            
+gcc par8-auto.c -o Par-8-auto -fopenmp -msse3 -O3;            
+gcc par16-auto.c -o Par-16-auto -fopenmp -msse3 -O3;
